@@ -1,0 +1,54 @@
+<div class="row">
+    <form>
+        <div class="form-group filtro">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Buscar" ng-model="vm.search" />
+            </div>
+        </div>
+    </form>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Auditoria de cobros</span>
+        </div>
+    </md-toolbar>
+    <div class="col-md-4 col-xs-12">
+        <li class="col-md-4 col-xs-12" ><a href="#/auditadetalles">auditorias de dellates <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4 col-xs-12"><a href="#/auditafacturas">auditorias de facturas <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4 col-xs-12"><a href="#/usuarios">auditorias de usuarios <span class="sr-only">(current)</span></a></li>
+    </div>
+    <!-- exact table from live demo -->
+    <div class="container diseño">
+    <div class="table-responsive">
+        <table md-table class="table table-bordered">
+            <thead md-head>
+                <tr md-row class="success">
+                    <th md-column>codigo</th>
+                    <th md-column>descripcion old</th>
+                    <th md-column>fecha de modificacion</th>
+                    <th md-column>usuario</th>
+                    <th md-column>valor dia sevicio old</th>
+                    <th md-column>valor dia servicio new</th>
+                    <th md-column>descripcion new</th>
+                </tr>
+            </thead>
+            <tbody md-body ng-controller="auditacobrosListCtrl as auditacobrosCtrl">
+                <tr md-row ng-repeat="auditacobro in auditacobrosCtrl.auditacobrosList | filter: vm.search" class="active">
+                    <td md-cell>{{auditacobro.codigo}}</td>
+                    <td md-cell>{{auditacobro.descripcionOld}}</td>
+                    <td md-cell>{{auditacobro.fechaModificacion}}</td>
+                    <td md-cell>{{auditacobro.usuario}}</td>
+                    <td md-cell>{{auditacobro.valorDiaServicioOld}}</td>
+                    <td md-cell>{{auditacobro.valorDiaServicioNew}}</td>
+                    <td md-cell>{{auditacobro.valorDiaServicioNew}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 20, 50]" md-page="vm.query.page" md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+    md-total="{{vm.auditacobros.length}}"></md-table-pagination>
+
+</div>

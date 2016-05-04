@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot?t4qyvz");
+  src: url("fonts/icomoon.eot?t4qyvz#iefix") format('embedded-opentype'), url("fonts/icomoon.ttf?t4qyvz") format('truetype'), url("fonts/icomoon.woff?t4qyvz") format('woff'), url("fonts/icomoon.svg?t4qyvz#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+/* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  padding-bottom: 2em;
+/* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-mail2:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-facebook2:before {
+  content: "\e901";
+  padding-bottom: 2em;
+  color: #191970;
+}
+.icon-whatsapp:before {
+  content: "\e902";
+  color: #327111;
+}
+.icon-twitter:before {
+  content: "\e903";
+}
+.Marca {
+  color: #bafff7;
+}
+.Footer {
+  display: block;
+  text-align: center;
+  background: #111;
+  background-size: cover;
+  color: #fff;
+  margin-top: 2em;
+}
+.Footer-text {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10%;
+  margin-top: 1em;
+}
+.Footer-li {
+  padding-bottom: 1em;
+  display: inline-block;
+  font-size: 4em;
+  margin-right: 3em;
+  font-style: oblique;
+  font-family: serif;
+  color: #bafff7;
+}
+.Footer-uno {
+  display: inline-flex;
+  max-width: 83%;
+  margin-right: -4em;
+  margin-left: 6em;
+  font-size: 8px;
+  margin-top: -5em;
+}
+.Footer-uno1 {
+  display: inline-block;
+  vertical-align: top;
+  color: #000;
+  margin-top: -4%;
+}
+.Footer-dos {
+  color: #bafff7;
+  font-family: serif;
+}
+@media screen and (max-width: 200px) {
+  .Footer-uno {
+    font-size: 6px;
+    display: block;
+  }
+  .Footer-text {
+    font-size: 4px;
+    display: block;
+  }
+}
+@media screen and (max-width: 456px) {
+  .Footer-uno {
+    font-size: 6px;
+    display: block;
+  }
+  .Footer-text {
+    font-size: 6px;
+    display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  .Footer-uno {
+    font-size: 6px;
+    display: block;
+  }
+  .Footer-text {
+    font-size: 6px;
+    display: block;
+  }
+}
+@media screen and (max-width: 821px) {
+  .Footer-uno {
+    font-size: 6px;
+    display: block;
+  }
+  .Footer-text {
+    font-size: 6px;
+    display: block;
+  }
+}
+@media screen and (max-width: 420px) {
+  .Footer-text {
+    font-size: 6px;
+    display: block;
+  }
+}

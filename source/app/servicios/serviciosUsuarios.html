@@ -1,0 +1,52 @@
+<div class="Usuarios-Servicios">
+    <section class="SS-Usuarios" ng-controller="ServiciosListCtrl as serviciosCtrl">
+        <tr dir-paginate="servicio in vm.servicios | filter:vm.busqueda | itemsPerPage:10">
+            <div class="Servicios-Usuarios" ng-repeat="servicio in serviciosCtrl.serviciosList | filter: vm.search" width="600px" height="600px">
+                <div class="row Contenido-Servicio">
+                    <h2 class="">
+               
+           </h2>
+
+                    <md-content class="md-padding Fondo-Perfil " layout-xs="column" layout="row">
+                        <div flex-xs flex-gt-xs="50" layout="column">
+                            <md-card class="Articulo-Servicio" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">Nombres de Usuario</span>
+                                        <span class="md-subhead">{{servicio.idUsuario.nombres}} {{servicio.idUsuario.apellidos}}</span>
+                                        <span class="md-headline">Telefono</span>
+                                        <span class="md-subhead">{{servicio.idUsuario.telefono}}</span>
+                                        <span class="md-headline">Direccion</span>
+                                        <span class="md-headline">{{servicio.idUsuario.direccion}}</span>
+                                        <span class="md-headline">Correo</span>
+                                        <span class="md-subhead">{{servicio.idUsuario.email}}</span>
+                                        <span class="md-headline">Sexo</span>
+                                        <span class="md-headline">{{servicio.idUsuario.sexo}}</span>
+                                        <span class="md-headline">Nombre Servicio</span>
+                                        <span class="md-subhead">{{servicio.nombre}}</span>
+                                        <span class="md-headline">Descripcion</span>
+                                        <span class="md-subhead">{{servicio.descripcion}}</span>
+                                        <span class="md-headline">Precio</span>
+                                        <span class="md-subhead"> ${{servicio.valor}}</span>
+                                        <span class="md-headline">Categoria</span>
+                                        <span class="text-muted">{{servicio.idTipoServicio.nombre}}</span>
+                                    </md-card-title-text>
+                                    <md-card-title-media>
+                                        <div class="md-media-lg card-media"><img src="img/imagenes.png"></img>
+                                        </div>
+                                    </md-card-title-media>
+                                </md-card-title>
+                                <md-card-actions layout="row" layout-align="end center">
+                                    <md-button href="#/perfil">Perfil</md-button>
+                                    <md-button>Contratar</md-button>
+                                    <td md-cell><a href="#/servicios/update/{{servicio.idServicio}}">Editar<span class="sr-only">(current)</span></a></td>
+                                </md-card-actions>
+                            </md-card>
+                    </md-content>
+                    <td md-cell><a href="#/servicios/update/{{servicio.idServicio}}">Editar<span class="sr-only">(current)</span></a></td>
+                    </div>
+                </div>
+        </tr>
+    </section>
+    </div>
+</div>

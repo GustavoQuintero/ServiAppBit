@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-menu"></span>
+      </button>
+     <a class="navbar-brand" href="#/"><img class="Logo" src="/img/ServiApp.png" alt="Serviapp" width="200px" height="200px"></a>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse"
+         id="bs-example-navbar-collapse-1" ng-controller="LoginController as login">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/usuarios/create" ng-hide="login.isAuthenticated()">Usuarios <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="#/servicios">Servicios <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="#/categorias">Categorias <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="#/registro" ng-hide="login.isAuthenticated()">Registro <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="#/auditacobros" ng-show="login.isAdmin()">Tablas de auditorias<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="#/perfil">Perfil<span class="sr-only">(current)</span></a></li>
+      </ul>
+        <form name="loginForm"
+            ng-hide="vm.isAuthenticated()"
+            role="form"
+            ng-submit="vm.signIn()"
+            novalidate
+            class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="email"
+                 class="form-control"
+                 placeholder="Email"
+                 required
+                 ng-model="vm.user.email"/>
+        </div>
+        <div class="form-group">
+          <input type="password"
+                 class="form-control"
+                 placeholder="Password"
+                 required
+                 ng-model="vm.user.password"/>
+        </div>
+        <button type="submit"
+                ng-disabled="loginForm.$invalid"
+                class="btn btn-primary">Ingresar</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right"
+          ng-show="vm.isAuthenticated()">
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="false">{{vm.getCurrentUser()}}
+             <span class="caret"></span>
+           </a>
+           <ul class="dropdown-menu">
+             <li><a ng-click="vm.logout()">Cerrar Sesión</a></li>
+             <li><a href="#/cuentas">Tu cuenta</a></li>
+           </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

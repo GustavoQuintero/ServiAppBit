@@ -1,0 +1,101 @@
+<!--<div class="container">
+    <h3>CREAR PUBLICIDAD</h3>
+    <div class="form-group col-sm-5">
+        <div layout="column" ng-cloak>
+            <md-content layout-padding>
+                <form name="publicidadCreate">
+                    <md-input-container class="md-block">
+                        <label>Descripcion</label>
+                        <input md-maxlength="30" required md-no-asterisk name="descripcion" ng-model="vm.publicidad.descripcion">
+                        <div ng-messages="publicidadCreate.descripcion.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">El nombre no puede superar 30 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Imagen Publicidad</label>
+                        <input md-maxlength="30" required name="Imagen" ng-model="vm.publicidad.imagenPublicidad">
+                        <div ng-messages="publicidadCreate.imagenPublicidad.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">El nombre no puede superar 30 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Estado</label>
+                        <md-select ng-model="vm.publicidad.estado" required>
+                            <md-option ng-repeat="estado in [{id: 'A', nombre: 'Activo'},{id: 'I', nombre: 'Inactivo'}]" value="{{estado.id}}">
+                                {{estado.nombre}}
+                            </md-option>
+                        </md-select>
+                        <div ng-messages="usuariosCreate.sexo.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                        </div>
+                    </md-input-container>
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+
+                            <md-button class="md-raised md-primary" ng-click="vm.create()">Guardar</md-button>
+
+                            <md-button ng-href="#/publicidad" class="md-raised md-warn">Cancelar</md-button>
+                        </section>
+
+                </form>
+            </md-content>
+        </div>
+
+    </div>
+</div>-->
+
+</form>
+</md-content>
+</div>
+
+</div>
+</div>
+<div class="container cargar">
+    <h2 class="create">Crea tu Anuncio</h2>
+    <form role="formPubli">
+        <div class="form-group">
+            <label for="email">Descripcion:</label>
+            <input type="text" class="form-control" id="email" placeholder="descripcion del anuncio" ng-model="vm.publicidad.descripcion">
+        </div>
+        <div class="form-group">
+            <md-button>
+                <label for="imagen-foto">
+            subir imagen
+        </label>
+                <input type="file" id="imagen-foto" style="display:none;" on-read-img="vm.loadImagen($fileContent)">
+            </md-button>
+        </div>
+        <img ng-if="vm.publicidad.imagenPublicidad" ng-src="{{'data:image/png;base64,' + vm.publicidad.imagenPublicidad}}" height="300px" />
+        <!--<div class="form-group">
+            <label for="pwd">imagen:</label>
+            <input type="file" class="form-control" id="pwd" placeholder="sube tu imagen" ng-model="vm.publicidad.imagenPublicidad">
+        </div>-->
+        <!--<div class="col-sm-6 col-lg-4">
+            <div class="form-group">
+                <label for="inputLabel3" class="col-md-4 control-label">estado:</label>
+                <div class="col-md-8">
+                    <input type="text" disabled class="form-control" id="inputLabel3" placeholder="estado" ng-disabled="vm.publicidad.estado===false"
+                    ng-model="vm.publicidad.estado">
+                </div>
+            </div>
+        </div>-->
+        <md-input-container class="md-block">
+            <label>Estado</label>
+            <md-select ng-model="vm.publicidad.estado" required>
+                <md-option ng-repeat="estado in [{id: '1', nombre: 'Activo'},{id: '0', nombre: 'Inactivo'}]" value="{{estado.id}}">
+                    {{estado.nombre}}
+                </md-option>
+            </md-select>
+            <div ng-messages="usuariosCreate.sexo.$error">
+                <div ng-message="required">Este campo es requerido.</div>
+            </div>
+        </md-input-container>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">Aceptas términos y condiciones</label>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="vm.create()" ng-disabled="FormPubli.$invalid" ng-href="#/servicios">Guardar</button>
+        <button type="submit" class="btn btn-default">Cancelar</button>
+
+    </form>

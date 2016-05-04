@@ -1,0 +1,58 @@
+<div class="row">
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Usuarios</span>
+        </div>
+    </md-toolbar>
+    <div class="col-md-4">
+        <li class="col-md-4"><a href="#/auditadetalles">auditorias de dellates <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4"><a href="#/auditafacturas">auditorias de facturas <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4"><a href="#/auditacobros">auditorias de cobros <span class="sr-only">(current)</span></a></li>
+    </div>
+    <!-- exact table from live demo -->
+     <div class="container diseño">
+    <div class="table-responsive">
+        <table md-table class="table table-bordered">
+            <thead md-head>
+                <tr md-row class="success">
+                    <th md-column>Id</th>
+                    <th md-column>Nombres</th>
+                    <th md-column>Apellidos</th>
+                    <th md-column>Teléfono</th>
+                    <th md-column>Dirección</th>
+                    <th md-column>Ciudad</th>
+                    <th md-column>Departamento</th>
+                    <th md-column>Email</th>
+                    <th md-column>Fecha Nácimiento</th>
+                    <th md-column>Sexo</th>
+                    <th md-column>numero de documento</th>
+                    <th md-column>fotoPerfil</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr md-row ng-repeat="usuario in vm.usuarios | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit" class="active">
+                    <td md-cell>{{usuario.idUsuario}}</td>
+                    <td md-cell>{{usuario.nombres}}</td>
+                    <td md-cell>{{usuario.apellidos}}</td>
+                    <td md-cell>{{usuario.telefono}}</td>
+                    <td md-cell>{{usuario.direccion}}</td>
+                    <td md-cell>{{usuario.ciudades.nombreCiudad}}</td>
+                    <td md-cell>{{usuario.ciudades.departamentos.nombreDepartamento}}</td>
+                    <td md-cell>{{usuario.email}}</td>
+                    <td md-cell>{{usuario.fechaNac | date: 'dd/MM/yyyy'}}</td>
+                    <td md-cell>{{usuario.sexo}}</td>
+                    <td md-cell>{{usuario.numeroDocumento}}</td>
+                    <td md-cell>{{usuario.fotoPerfil}}</td>
+
+                    <td md-cell>
+                        <a href="#/usuarios/update/{{usuario.idUsuario}}">Editar<span class="sr-only">(current)</span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 20, 50]" md-page="vm.query.page" md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+    md-total="{{vm.usuarios.length}}"></md-table-pagination>
+
+</div>

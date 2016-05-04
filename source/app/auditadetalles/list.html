@@ -1,0 +1,81 @@
+<div class="row">
+    <form>
+        <div class="form-group filtro">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Buscar" ng-model="vm.search" />
+            </div>
+        </div>
+    </form>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Auditoria de Detalles</span>
+        </div>
+    </md-toolbar>
+    <div class="col-md-4">
+        <li class="col-md-4"><a href="#/usuarios">auditorias de usuarios <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4"><a href="#/auditafacturas">auditorias de facturas <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4"><a href="#/auditacobros">auditorias de cobros <span class="sr-only">(current)</span></a></li>
+    </div>
+    <!-- exact table from live demo -->
+    <div class="container diseño">
+    <div class="table-responsive">
+        <table md-table class="table table-bordered">
+            <thead md-head>
+                <tr md-row class="success">
+                    <th md-column>codigo</th>
+                    <th md-column>usuario</th>
+                    <th md-column>numero de factura old</th>
+                    <th md-column>id cobros servicio old</th>
+                    <th md-column>fecha old</th>
+                    <th md-column>email old</th>
+                    <th md-column>cantidad dia old</th>
+                    <th md-column>cantidad servicio old</th>
+                    <th md-column>descripcion old</th>
+                    <th md-column>id oferta old</th>
+                    <th md-column>id tipo oferta old</th>
+                    <th md-column>fecha modificacion old</th>
+                    <th md-column>numero factura new</th>
+                    <th md-column>id cobros servicio new</th>
+                    <th md-column>fecha new</th>
+                    <th md-column>email new</th>
+                    <th md-column>cantidad dia new</th>
+                    <th md-column>cantidad servicio new</th>
+                    <th md-column>descripcion new</th>
+                    <th md-column>id oferta new</th>
+                    <th md-column>id tipo oferta new</th>
+            </thead>
+            <tbody md-body ng-controller="auditadetallesListCtrl as auditadetallesCtrl">
+                <tr md-row ng-repeat="auditadetalle in auditadetallesCtrl.auditadetallesList | filter: vm.search" class="active">
+                    <td md-cell>{{auditadetalle.codigo}}</td>
+                    <td md-cell>{{auditadetalle.usuario}}</td>
+                    <td md-cell>{{auditadetalle.numFacturaOld}}</td>
+                    <td md-cell>{{auditadetalle.idCobroServicioOld}}</td>
+                    <td md-cell>{{auditadetalle.fechaOld}}</td>
+                    <td md-cell>{{auditadetalle.emailOld}}</td>
+                    <td md-cell>{{auditadetalle.cantidadDiaOld}}</td>
+                    <td md-cell>{{auditadetalle.cantidadServicioOld}}</td>
+                    <td md-cell>{{auditadetalle.descripcionOld}}</td>
+                    <td md-cell>{{auditadetalle.idOfertaOld}}</td>
+                    <td md-cell>{{auditadetalle.idTipoOfertaOld}}</td>
+                    <td md-cell>{{auditadetalle.fechaModificacion}}</td>
+                    <td md-cell>{{auditadetalle.numFacturaNew}}</td>
+                    <td md-cell>{{auditadetalle.idCobroServicioNew}}</td>
+                    <td md-cell>{{auditadetalle.fechaNew}}</td>
+                    <td md-cell>{{auditadetalle.emailNew}}</td>
+                    <td md-cell>{{auditadetalle.cantidadDiaNew}}</td>
+                    <td md-cell>{{auditadetalle.cantidadServicioNew}}</td>
+                    <td md-cell>{{auditadetalle.descripcionNew}}</td>
+                    <td md-cell>{{auditadetalle.idOfertaNew}}</td>
+                    <td md-cell>{{auditadetalle.idTipoOfertaNew}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 20, 50]" md-page="vm.query.page" md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+    md-total="{{vm.auditadetalles.length}}"></md-table-pagination>
+
+</div>

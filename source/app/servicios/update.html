@@ -1,0 +1,77 @@
+<div class="container">
+    <h3>CREAR SERVICIO</h3>
+    <div class="form-group col-sm-5">
+        <div layout="column" ng-cloak>
+            <md-content layout-padding>
+                <form name="usuariosCreate">
+                    <md-input-container class="md-block">
+                        <label>Nombres</label>
+                        <input md-maxlength="30" required md-no-asterisk name="nombres" ng-model="vm.servicio.nombre">
+                        <div ng-messages="serviciosCreate.nombre.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">El nombre no puede superar 30 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Descripcion</label>
+                        <input md-maxlength="100" required name="descripcion" ng-model="vm.servicio.descripcion">
+                        <div ng-messages="serviciosCreate.descripcion.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">El nombre no puede superar 100 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Valor</label>
+                        <input md-maxlength="30" required md-no-asterisk name="valor" ng-model="vm.servicio.valor">
+                        <div ng-messages="serviciosCreate.valor.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">El nombre no puede superar 30 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                   <!--<md-autocomplete md-selected-item="vm.servicio.idTipoServicio" md-search-text="vm.searchTextTiposServicios" md-items="item in vm.queryTiposServicios(vm.searchTextTiposServicios)"
+                    md-item-text="item.nombre" md-min-length="1" md-floating-label="TiposServicios" md-input-name="tiposServicios"
+                    required>
+                        <md-item-template>
+                            <span md-highlight-text="vm.searchTextTiposServicios" md-highlight-flags="^i">
+                                {{item.nombre}}
+                        </md-item-template>
+                        <md-not-found>
+                            El "{{vm.searchTextTiposServicios}}" no fue aceptado.
+                        </md-not-found>
+                        <div ng-messages="serviciosCreate.tiposServicios.$error" ng-if="serviciosCreate.tiposServicios.$touched">
+                            <div ng-message="required">Este campo es requerido.</div>
+                        </div>
+                    </md-autocomplete> 
+               <md-input-container>
+                    <label>Categorias</label>
+                     <md-select ng-model="vm.servicio.idTipoServicio">
+                        <md-option ng-repeat="servicio in vm.tiposServicios" 
+                        value="{{vm.tiposServicios}}" ng-disabled="$index === 1">
+                            {{item.nombre}}
+                         </md-option>
+                    </md-select>
+                </md-input-container>-->
+                
+                <!--<md-input-container class="md-block">
+                        <label>Categorias</label>
+                        <md-select multiple ng-model="vm.servicio.tiposServiciosList">
+                            <md-option ng-repeat="tiposServicios in vm.tiposServicios" ng-value="nombre">
+                                {{tiposServicios.nombre}}
+                            </md-option>
+                        </md-select>
+                        </md-input-container>-->
+                
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+
+                            <md-button class="md-raised md-primary" ng-click="vm.update()">Guardar</md-button>
+
+                            <md-button ng-href="#/usuarios" class="md-raised md-warn">Cancelar</md-button>
+
+                        </section>
+
+                </form>
+            </md-content>
+        </div>
+
+    </div>
+</div>

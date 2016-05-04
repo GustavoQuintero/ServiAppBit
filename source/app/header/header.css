@@ -1,0 +1,11 @@
+.Logo {
+  margin-top: -5em;
+  border-radius: 79px;
+}
+@media screen and (max-width: 200px) {
+  .Logo {
+    margin-top: -5em;
+    border-radius: 79px;
+    margin-left: -2em;
+  }
+}

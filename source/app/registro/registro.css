@@ -1,0 +1,16 @@
+.M1 {
+  background: #2286a7;
+}
+@media (max-width: 1200px) {
+  .formulario .formulario,
+  margin-left 32% .formulario {
+    margin-left: 32%;
+  }
+}
+@media (max-width: 200px) {
+  .formulario .formulario,
+  margin-left 32% .formulario {
+    margin-left: -16%;
+    width: 167%;
+  }
+}

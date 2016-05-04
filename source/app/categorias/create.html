@@ -1,0 +1,28 @@
+<div class="container Crear-Div">
+    <h3 class="Titulo-Crear">CREAR CATEGORIA</h3>
+    <div class="form-group col-sm-5">
+        <div layout="column" ng-cloak>
+            <md-content class="Crear-Categoria" layout-padding>
+                <form name="categoriasCreate">
+                    <md-input-container class="md-block">
+                        <label>Nombres</label>
+                        <input md-maxlength="30" required md-no-asterisk name="nombres" ng-model="vm.categoria.nombre">
+                        <div ng-messages="categoriasCreate.nombres.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">El nombre no puede superar 60 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+
+                        <md-button ng-click="vm.create()" class="Actualizar">Guardar</md-button>
+
+                        <md-button ng-href="#/categorias" class="Cancelar">Cancelar</md-button>
+
+                    </section>
+
+                </form>
+            </md-content>
+        </div>
+
+    </div>
+</div>

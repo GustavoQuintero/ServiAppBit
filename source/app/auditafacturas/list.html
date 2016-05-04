@@ -1,0 +1,63 @@
+<div class="row">
+    <form>
+        <div class="form-group filtro">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Buscar" ng-model="vm.search" />
+            </div>
+        </div>
+    </form>
+    <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+            <span>Auditoria de Facturas</span>
+        </div>
+    </md-toolbar>
+    <div class="col-md-4">
+        <li class="col-md-4"><a href="#/auditadetalles">auditorias de dellates <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4"><a href="#/usuarios">auditorias de usuarios <span class="sr-only">(current)</span></a></li>
+        <li class="col-md-4"><a href="#/auditacobros">auditorias de cobros <span class="sr-only">(current)</span></a></li>
+    </div>
+    <!-- exact table from live demo -->
+     <div class="container diseño">
+    <div class="table-responsive">
+        <table md-table class="table table-bordered">
+            <thead md-head>
+                <tr md-row class="success">
+                    <th md-column>codigo</th>
+                    <th md-column>usuario</th>
+                    <th md-column>numero de factura old</th>
+                    <th md-column>valor total old</th>
+                    <th md-column>fecha old</th>
+                    <th md-column>id usuario old</th>
+                    <th md-column>numero factura new</th>
+                    <th md-column>valor total new</th>
+                    <th md-column>fecha new</th>
+                    <th md-column>id usuario new</th>
+                    <th md-column> fecha de modificacion</th>
+                </tr>
+            </thead>
+            <tbody md-body ng-controller="auditafacturasListCtrl as auditafacturasCtrl">
+                <tr md-row ng-repeat="auditafactura in auditafacturasCtrl.auditafacturasList | filter: vm.search"
+                class="active">
+                    <td md-cell>{{auditafactura.codigo}}</td>
+                    <td md-cell>{{auditafactura.usuario}}</td>
+                    <td md-cell>{{auditafactura.numFacturaOld}}</td>
+                    <td md-cell>{{auditafactura.valorTotalOld}}</td>
+                    <td md-cell>{{auditafactura.fechaOld}}</td>
+                    <td md-cell>{{auditafactura.idUsuarioOld}}</td>
+                    <td md-cell>{{auditafactura.numFacturaNew}}</td>
+                    <td md-cell>{{auditafactura.valorTotalNew}}</td>
+                    <td md-cell>{{auditafactura.fechaNew}}</td>
+                    <td md-cell>{{auditafactura.idUsuarioNew}}</td>
+                    <td md-cell>{{auditafactura.fechaModificacion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 20, 50]" md-page="vm.query.page" md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+    md-total="{{vm.auditafacturas.length}}"></md-table-pagination>
+
+</div>

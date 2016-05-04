@@ -1,0 +1,18 @@
+<div class="btn-group form" ng-controller="LoginController as login">
+    <button ng-show="login.isAuthenticated()" type="button" class="btn glyphicon glyphicon-align-justify dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" ng-controller="LoginController as login">
+        <li><a class="profile" href="#/usuarios/usuario"><i class="icon-user"></i>Perfil</a></li>
+        <li ng-show="login.isPres()"><a class="settings" href="#/servicios/serviciosUsuarios"><i class="icon-user"></i>Mis servicios</a></li>
+        <li ng-show="login.isPres()"><a class="messages" href="#/servicios/create"><i class="icon-user"></i>Crear servicio</a></li>
+        <li ng-show="login.isPres()"><a class="profile" href="#"><i class="icon-user"></i>Calificaciones</a></li>
+        <li ng-show="login.isPres()"><a class="settings" href="#"><i class="icon-user"></i>Comentarios</a></li>
+        <li><a class="messages" href="#"><i class="icon-user"></i>Denuncias</a></li>
+        <li><a class="profile" href="#"><i class="icon-user"></i>Servicios Adquiridos</a></li>
+        <!--<li><a class="settings" href="#/usuarios/update/{{usuario.idUsuario}}"><i class="icon-user"></i>Editar Perfil</a></li>-->
+        <li class="selected"><a class="messages" href="#"><i class="icon-envelope-alt"></i>¿Necesitas Ayuda?</a></li>
+        <li ng-show="login.isPres()"><a class="settings" href="#/publicidad/create"><i class="icon-cog"></i>Crear publicdad</a></li>
+        <li><a class="logout" href="#"><i class="icon-signout"></i>Cerrar Sesión</a></li>
+    </ul>
+</div>

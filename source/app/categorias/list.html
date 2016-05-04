@@ -1,0 +1,36 @@
+<div class="container contenedor-categoria">
+<div class="page-header">
+<md-toolbar class="md-table-toolbar md-default" ng-controller="LoginController as login">
+    <div class="md-toolbar-tools">
+        <span>Categorias</span>
+   </div>
+   <a class="btn btn-primary btn-lg active" href="#/categorias/create" ng-show="login.isAdmin()">Crear Categoria<span class="sr-only">(current)</span></a>
+</md-toolbar>
+
+<!-- exact table from live demo -->
+<div class="container diseño">
+    <div class="table-responsive tabla-informacion" ng-controller="LoginController as login">
+    <table md-table md-row-select multiple ng-model="vm.selected" md-progress="vm.promise" class="table table-bordered">
+        <thead md-head md-order="vm.query.order" md-on-reorder="vm.getCategorias">
+            <tr md-row class="tabla-top">
+                <th md-column md-order-by="nameToLower"><span>Id</span></th>
+                <th md-column md-numeric md-order-by="vm.categorias.nombre"><span>Categorias</span></th>
+                <th md-column md-numeric md-order-by="vm.categorias.nombre"><span>Actualizar</span></th>
+            </tr>
+        </thead>
+        <tbody md-body>
+            <tr md-row md-select="vm.tipoServicio" md-select-id="nombre" md-auto-select ng-repeat="categoria in vm.categorias | limitTo: vm.query.limit: (vm.query.page - 1) * vm.query.limit" class="active">
+                <td md-cell>{{categoria.idTipoServicio}}</td>
+                <td md-cell>{{categoria.nombre}}</td>
+                <td md-cell><a href="#/categorias/update/{{categoria.idTipoServicio}}" ng-show="login.isAdmin()">Editar<span class="sr-only">(current)</span></a></td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+<md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 20, 50]" md-page="vm.query.page" md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}" md-total="{{vm.categorias.length}}"></md-table-pagination>
+
+</div>
+

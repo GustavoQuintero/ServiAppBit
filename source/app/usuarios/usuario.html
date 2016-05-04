@@ -1,0 +1,55 @@
+ <div class="Usuarios-Servicios" ng-controller="LoginController as login">
+ <section class="SS-Usuarios" ng-controller="usuariosListas as lista">
+         	<div class="container well todo">
+		<div class="row">
+				<div class="col-xs-12"><h2 class="co">Mi Perfil</h2></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-3 foto">
+          <a href="#" class="thumbnail">
+            <img src="img/nora.jpg" alt="...">
+          </a>
+        </div>
+
+			</div>
+		<br /><br />
+        <tr class="form-horizontal" dir-paginate="usuario in vm.usuarios | filter:vm.busqueda | itemsPerPage:10">
+            <div ng-repeat="usuario in lista.usuarioslist | filter: vm.search" width="600px"  height="600px">
+                <div class="row Contenido-Servicio" >
+                    <md-content class="md-padding Fondo-Perfil " layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column" >
+      <md-card class="Articulo-Servicio Perfil-User" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Nombres</span>
+            <span class="md-subhead">{{usuario.nombres}}</span>
+            <span class="md-headline">Apellidos</span>
+            <span class="md-subhead">{{usuario.apellidos}}</span>
+            <span class="md-headline">Telefono</span>
+            <span class="md-subhead">{{usuario.telefono}}</span>
+            <span class="md-headline">Direccion</span>
+            <span class="md-subhead">{{usuario.direccion}}</span>
+            <span class="md-headline">Ciudad</span>
+            <span class="md-subhead">{{usuario.ciudades.nombreCiudad}}</span>
+            <span class="md-headline">Departamento</span>
+            <span class="md-subhead">{{usuario.ciudades.departamentos.nombreDepartamento}}</span>
+            <span class="md-headline">Email</span>
+            <span class="md-subhead">{{usuario.email}}</span>
+            <span class="md-headline">Fecha de Nacimiento</span>
+            <span class="md-subhead">{{usuario.fechaNac | date: 'dd/MM/yyyy'}}</span>
+            <span class="md-headline">Sexo</span>
+            <span class="md-subhead">{{usuario.sexo}}</span>
+            <span class="md-headline">Numero de Documento</span>
+            <span class="md-subhead">{{usuario.numeroDocumento}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Contratar</md-button>
+          <td md-cell><a href="#/usuarios/update/{{usuario.idUsuario}}">Editar<span class="sr-only">(current)</span></a></td>
+        </md-card-actions>
+      </md-card>
+                </div>
+            </div>
+        </tr>
+    </section>
+</div> 

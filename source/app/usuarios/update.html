@@ -1,0 +1,262 @@
+<!--<div class="container">
+    <h3>EDITAR USUARIO</h3>
+    <div class="form-group col-sm-5">
+        <div layout="column" ng-cloak>
+            <md-content layout-padding>
+                <form name="categoriasUpdate">
+                     <md-input-container class="md-block">
+                        <label>Nombres</label>
+                        <input ng-dblclick="disabled" md-maxlength="40" type="text"  ng-pattern="/^[a-zA-Z]$/" required md-no-asterisk name="nombres" ng-model="vm.usuario.nombres">
+                        <div ng-messages="usuariosCreate.nombres.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="pattern">Solo texto.</div>
+                            <div ng-message="md-maxlength">El nombre no puede superar 40 caracteres y debe ser solo texto.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Apellidos</label>
+                        <input md-maxlength="40"  ng-pattern="/^[a-zA-Z]$/" required md-no-asterisk name="apellidos" ng-model="vm.usuario.apellidos">
+                        <div ng-messages="usuariosCreate.apellidos.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="pattern">Solo texto.</div>
+                            <div ng-message="md-maxlength">El apellidos no puede superar 40 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Teléfono</label>
+                        <input md-maxlength="16" ng-pattern="/0-9/" required md-no-asterisk name="telefono" ng-model="vm.usuario.telefono">
+                        <div ng-messages="usuariosCreate.telefono.$error">
+                            <div ng-message="pattern">Solo numeros.</div>
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">El teléfono no puede superar 16 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Dirección</label>
+                        <input md-maxlength="100" required md-no-asterisk name="direccion" ng-model="vm.usuario.direccion">
+                        <div ng-messages="usuariosCreate.direccion.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">La dirección no puede superar 100 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <!-- Ciudades Autocomplete Angular Material -->
+                    <!--<md-autocomplete md-selected-item="vm.usuario.ciudades" md-search-text="vm.searchTextCiudades" md-items="item in vm.queryCiudades(vm.searchTextCiudades)" md-item-text="item.nombreCiudad + ' - ' + item.departamentos.nombreDepartamento" md-min-length="1" md-floating-label="Ciudad" md-input-name="ciudadDomicilio" required>
+                        <md-item-template>
+                            <span md-highlight-text="vm.searchTextCiudades" md-highlight-flags="^i">
+                                {{item.nombreCiudad}}
+                                -
+                                {{item.departamentos.nombreDepartamento}}</span>
+                        </md-item-template>
+                        <md-not-found>
+                            La ciudad "{{vm.searchTextCiudades}}" no fue encontrada.
+                        </md-not-found>
+                        <div ng-messages="usuariosCreate.ciudadDomicilio.$error" ng-if="usuariosCreate.ciudadDomicilio.$touched">
+                            <div ng-message="required">Este campo es requerido.</div>
+                        </div>
+                    </md-autocomplete>
+
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input type="email" md-maxlength="100" ng-pattern="/^.+@.+\..+$/" required md-no-asterisk name="email" ng-model="vm.usuario.email">
+                        <div ng-messages="usuariosCreate.email.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="pattern">Digite un email valido ejemplo@hotmail.com.</div>
+                            <div ng-message="md-maxlength">El email no puede superar 100 caracteres.</div>
+                        </div>
+                    </md-input-container>
+
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Contraseña</label>
+                        <input type="password" md-maxlength="15" required md-no-asterisk name="password" ng-model="vm.usuario.password">
+                        <div ng-messages="usuarioCreate.password.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">La contraseña no puede superar 15 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+
+                        <md-button ng-click="vm.update()" ng-href="#/usuarios" class="md-raised md-primary">Actualizar</md-button>
+
+                        <md-button ng-href="#/usuarios" class="md-raised md-warn">Cancelar</md-button>
+
+                    </section>
+
+                </form>
+            </md-content>
+        </div>
+
+    </div>
+</div>-->
+<div class="container well todo">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="co">EDITAR PERFIL</h2></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3 foto">
+            <a href="#" class="thumbnail">
+                <img src="img/nora.jpg" alt="...">
+            </a>
+        </div>
+
+    </div>
+    <br />
+    <br />
+      <form class="form-horizontal" ng-controller="LoginController as login">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="formGroup">Nombres</label>
+            <div class="input-group col-sm-4">
+                <input class="form-control" type="text" id="formGroup" ng-model="vm.usuario.nombres" disabled>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="formGroup">Apellidos</label>
+            <div class="input-group col-sm-4">
+                <input class="form-control" type="text" id="formGroup" ng-model="vm.usuario.apellidos" disabled>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="formGroup" id="tel">Teléfono</label>
+            <div class="input-group col-sm-3">
+                <input class="form-control" type="text" id="formGroup" ng-model="vm.usuario.telefono">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="formGroup" id="tel">Direccion</label>
+            <div class="input-group col-sm-3">
+                <input class="form-control" type="text" id="formGroup" ng-model="vm.usuario.direccion">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+            </div>
+        </div>
+
+        <md-autocomplete md-selected-item="vm.usuario.ciudades" md-search-text="vm.searchTextCiudades" md-items="item in vm.queryCiudades(vm.searchTextCiudades)"
+            md-item-text="item.nombreCiudad + ' - ' + item.departamentos.nombreDepartamento" md-min-length="1" md-floating-label="Ciudad"
+            md-input-name="ciudadDomicilio" required>
+            <md-item-template>
+                <span md-highlight-text="vm.searchTextCiudades" md-highlight-flags="^i">
+                                {{item.nombreCiudad}}
+                                -
+                                {{item.departamentos.nombreDepartamento}}</span>
+            </md-item-template>
+            <md-not-found>
+                La ciudad "{{vm.searchTextCiudades}}" no fue encontrada.
+            </md-not-found>
+            <div ng-messages="usuariosCreate.ciudadDomicilio.$error" ng-if="usuariosCreate.ciudadDomicilio.$touched">
+                <div ng-message="required">Este campo es requerido.</div>
+            </div>
+        </md-autocomplete>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="formGroup" id="tel">Correo electrónico</label>
+            <div class="input-group col-sm-3">
+                <input class="form-control" type="email" id="formGroup" ng-model="vm.usuario.email">
+                <span class="input-group-addon">@</span>
+            </div>
+        </div>
+        <div class="form-group" ng-show="login.isPres()">
+            <label class="col-sm-2 control-label" for="formGroup" id="tel">Mis servicios</label>
+            <div class="input-group col-sm-3">
+                <input class="form-control" type="text" id="formGroup">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-wrench"></span></span>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group" ng-show="login.isPres()">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="formGroup">Estado</label>
+                <div class="col-sm-4">
+
+                    <select class="form-control">
+                    <option>activado</option>
+                    <option>inactivo</option>
+
+                </select>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label " for="formGroup">Cuenta</label>
+                <div class="col-sm-4">
+
+                    <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> Activar
+                </label>
+                    <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Desactivar
+                </label>
+
+                </div>
+            </div>
+            <div class="form-group" ng-show="login.isPres()">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="formGroup">Conoce mas sobre mis servicios </label>
+                    <div class="input-group col-sm-4">
+                        <textarea class="form-control" rows="4"></textarea>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-comment"></span></span>
+
+                    </div>
+                </div>
+                <div class="form-group" ng-show="login.isPres()">
+                    <div class="row">
+                        <div class="col-lg-4 ">
+                            <a href="#" class="thumbnail">
+                                <img src="img/01.jpg" alt="...">
+                            </a>
+                        </div>
+
+
+                        <div class="form-group" ng-show="login.isPres()">
+                            <div class="col-lg-4 ">
+                                <a href="#" class="thumbnail">
+                                    <img src="img/01.jpg" alt="...">
+                                </a>
+                            </div>
+
+
+                            <div class="form-group" ng-show="login.isPres()">
+                                <div class="col-lg-4 ">
+                                    <a href="#" class="thumbnail">
+                                        <img src="img/01.jpg" alt="...">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="formGroup"></label>
+                                <div class="col-sm-4">
+
+                                    <button ng-click="vm.update()" ng-href="#/usuarios" type="submit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>
+
+                                    <button ng-href="#/usuarios/usuario" type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar</button>
+
+
+                                </div>
+                                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+
+                                    <md-button ng-click="vm.update()" ng-href="#/usuarios" class="md-raised md-primary"><span class="glyphicon glyphicon-floppy-saved"></span>Actualizar</md-button>
+
+                                    <md-button ng-href="#/usuarios/usuario" class="md-raised md-warn"><span class="glyphicon glyphicon-remove-circle">Cancelar</md-button>
+
+                    </section>
+
+
+
+		        </form>
+
+
+
+	</div>

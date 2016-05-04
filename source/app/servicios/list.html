@@ -1,0 +1,53 @@
+<section class="servicios">
+    <form>
+        <form>
+            <div class="form-group">
+                <div class="input-group barra-buscador">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Buscar Servicios" ng-model="vm.search" />
+                </div>
+            </div>
+        </form>
+        <div class="Usuarios-Servicios" ng-controller="ServiciosListas as serviciosCtrl">
+            <section class="SS-Usuarios">
+                <tr dir-paginate="servicio in vm.servicios | filter:vm.busqueda | itemsPerPage:10">
+                    <div class="Servicios-Usuarios" ng-repeat="servicio in serviciosCtrl.serviciosList | filter: vm.search" width="600px" height="600px">
+                        <div class="row Contenido-Servicio" class="encuentralo">
+                            <!--<h2 class="">{{servicio.nombre | uppercase}}-->
+                            <span class="text-muted">{{servicio.idTiposServicios.nombre}}</span>
+                            </h2>
+                            <md-content class="md-padding Fondo-Perfil " layout-xs="column" layout="row">
+                                <div flex-xs flex-gt-xs="50" layout="column">
+                                    <md-card class="Articulo-Servicio" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                                        <md-card-title>
+                                            <md-card-title-text>
+                                                <span class="md-headline">Nombre</span>
+                                                <span class="md-subhead">{{servicio.idUsuario.nombres}} {{servicio.idUsuario.apellidos}}</span>
+                                                <span class="md-headline">Nombre Servicio</span>
+                                                <span class="md-subhead">{{servicio.nombre}}</span>
+                                                <span class="md-headline">Descripcion</span>
+                                                <span class="md-subhead">{{servicio.descripcion}}</span>
+                                                <span class="md-headline">Precio</span>
+                                                <span class="md-subhead"> ${{servicio.valor}}</span>
+                                            </md-card-title-text>
+                                            <md-card-title-media>
+                                                <div class="md-media-lg card-media"><img src="img/imagenes.png"></img>
+                                                </div>
+                                            </md-card-title-media>
+                                        </md-card-title>
+                                        <md-card-actions layout="row" layout-align="end center">
+                                            <md-button ng-href="servicios/servicio/{{servicio.idServicio}}">Perfil</md-button>
+                                        </md-card-actions>
+                                    </md-card>
+
+                                </div>
+                        </div>
+                </tr>
+            </section>
+            </div>
+            <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+            </dir-pagination-controls>
+    </form>
+</section>

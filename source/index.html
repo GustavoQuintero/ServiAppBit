@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Serviapp</title>
+
+    <!-- build:css css/style.min.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/auditacobros/auditacobros.css">
+    <link rel="stylesheet" href="/app/categorias/categoria.css">
+    <link rel="stylesheet" href="/app/cuentas/cuenta.css">
+    <link rel="stylesheet" href="/app/footer/fonts.css">
+    <link rel="stylesheet" href="/app/footer/footer.css">
+    <link rel="stylesheet" href="/app/header/header.css">
+    <link rel="stylesheet" href="/app/inicio/inicio.css">
+    <link rel="stylesheet" href="/app/perfil/perfil.css">
+    <link rel="stylesheet" href="/app/publicidad/publicidad.css">
+    <link rel="stylesheet" href="/app/registro/registro.css">
+    <link rel="stylesheet" href="/app/servicios/servicio.css">
+    <link rel="stylesheet" href="/app/usuarios/usuarios.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+</head>
+
+<body>
+    <!-- El encabezado es el header, solo que no se puede colocar header, porque html,
+    ya tiene una etiqueta con ese nombre -->
+      <encabezado></encabezado>
+
+    <!-- Inicio contenido Página -->
+    <cuentaslist></cuentaslist>
+    <div ui-view></div>
+    <!-- Fin contenido Página -->
+
+     <!-- El piepagina es el footer, solo que no se puede colocar footer, porque html,
+    ya tiene una etiqueta con ese nombre -->
+
+   <piepagina></piepagina>
+
+
+    <!-- build:js js/vendor.min.js -->
+    <!-- bower:js -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/angularUtils-pagination/dirPagination.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/satellizer/satellizer.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js js/app.min.js -->
+    <!-- inject:js -->
+    <script src="/app/app.module.js"></script>
+    <script src="/app/templates.js"></script>
+    <script src="/app/auditacobros/app.controller.js"></script>
+    <script src="/app/auditacobros/app.directivas.js"></script>
+    <script src="/app/auditacobros/app.modules.js"></script>
+    <script src="/app/auditacobros/app.route.js"></script>
+    <script src="/app/auditacobros/app.services.js"></script>
+    <script src="/app/auditadetalles/app.controller.js"></script>
+    <script src="/app/auditadetalles/app.directivas.js"></script>
+    <script src="/app/auditadetalles/app.modules.js"></script>
+    <script src="/app/auditadetalles/app.route.js"></script>
+    <script src="/app/auditadetalles/app.services.js"></script>
+    <script src="/app/auditafacturas/app.controller.js"></script>
+    <script src="/app/auditafacturas/app.directivas.js"></script>
+    <script src="/app/auditafacturas/app.modules.js"></script>
+    <script src="/app/auditafacturas/app.route.js"></script>
+    <script src="/app/auditafacturas/app.services.js"></script>
+    <script src="/app/calificaciones/app.controller.js"></script>
+    <script src="/app/calificaciones/app.directivas.js"></script>
+    <script src="/app/calificaciones/app.module.js"></script>
+    <script src="/app/calificaciones/app.route.js"></script>
+    <script src="/app/calificaciones/app.services.js"></script>
+    <script src="/app/categorias/app.controller.js"></script>
+    <script src="/app/categorias/app.directivas.js"></script>
+    <script src="/app/categorias/app.modules.js"></script>
+    <script src="/app/categorias/app.route.js"></script>
+    <script src="/app/categorias/app.services.js"></script>
+    <script src="/app/config/app.constantes.js"></script>
+    <script src="/app/config/app.on-read-img.directive.js"></script>
+    <script src="/app/cuentas/app.controller.js"></script>
+    <script src="/app/cuentas/app.directivas.js"></script>
+    <script src="/app/cuentas/app.module.js"></script>
+    <script src="/app/cuentas/app.route.js"></script>
+    <script src="/app/cuentas/app.services.js"></script>
+    <script src="/app/footer/app.directivas.js"></script>
+    <script src="/app/footer/app.module.js"></script>
+    <script src="/app/header/app.directivas.js"></script>
+    <script src="/app/header/app.module.js"></script>
+    <script src="/app/inicio/app.controller.js"></script>
+    <script src="/app/inicio/app.directivas.js"></script>
+    <script src="/app/inicio/app.module.js"></script>
+    <script src="/app/inicio/app.route.js"></script>
+    <script src="/app/login/app.controller.js"></script>
+    <script src="/app/login/app.module.js"></script>
+    <script src="/app/perfil/app.controller.js"></script>
+    <script src="/app/perfil/app.directivas.js"></script>
+    <script src="/app/perfil/app.module.js"></script>
+    <script src="/app/perfil/app.route.js"></script>
+    <script src="/app/perfil/app.services.js"></script>
+    <script src="/app/publicidad/app.controller.js"></script>
+    <script src="/app/publicidad/app.directivas.js"></script>
+    <script src="/app/publicidad/app.module.js"></script>
+    <script src="/app/publicidad/app.route.js"></script>
+    <script src="/app/publicidad/app.services.js"></script>
+    <script src="/app/registro/app.controller.js"></script>
+    <script src="/app/registro/app.directivas.js"></script>
+    <script src="/app/registro/app.module.js"></script>
+    <script src="/app/registro/app.route.js"></script>
+    <script src="/app/registro/app.services.js"></script>
+    <script src="/app/servicios/app.controller.js"></script>
+    <script src="/app/servicios/app.directivas.js"></script>
+    <script src="/app/servicios/app.module.js"></script>
+    <script src="/app/servicios/app.route.js"></script>
+    <script src="/app/servicios/app.services.js"></script>
+    <script src="/app/usuarios/app.controller.js"></script>
+    <script src="/app/usuarios/app.directivas.js"></script>
+    <script src="/app/usuarios/app.module.js"></script>
+    <script src="/app/usuarios/app.route.js"></script>
+    <script src="/app/usuarios/app.services.js"></script>
+    <script src="/app/cuentas/js/cuenta.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+
+</html>

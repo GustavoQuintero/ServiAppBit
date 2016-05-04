@@ -1,0 +1,150 @@
+<section class="Sector-Create-Usuario">
+    <div class="container Crear-Usuario">
+        <h3>CREAR USUARIO</h3>
+        <div class="form-group col-sm-5">
+            <div layout="column" ng-cloak>
+                <md-content layout-padding>
+                    <form name="usuariosCreate">
+                        <div class="form-group">
+                            <md-button>
+                                <label for="imagen-foto">
+                                    subir imagen
+                                </label>
+                                <input type="file" id="imagen-foto" style="display:none;" on-read-img="vm.loadImagen($fileContent)">
+                            </md-button>
+                        </div>
+                        <img ng-if="vm.usuario.fotoPerfil" ng-src="{{'data:image/png;base64,' + vm.usuario.fotoPerfil}}" height="300px" />
+                        <md-input-container class="md-block">
+                            <label>Nombres</label>
+                            <input md-maxlength="40" type="text" ng-pattern="/[a-zA-Z]/" required md-no-asterisk name="nombres" ng-model="vm.usuario.nombres">
+                            <div ng-messages="usuariosCreate.nombres.$error">
+                                <div ng-message="required">Este campo es requerido.</div>
+                                <div ng-message="pattern">Solo texto.</div>
+                                <div ng-message="md-maxlength">El nombre no puede superar 40 caracteres y debe ser solo texto.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Apellidos</label>
+                            <input md-maxlength="40" ng-pattern="/[a-zA-Z]/" required md-no-asterisk name="apellidos" ng-model="vm.usuario.apellidos">
+                            <div ng-messages="usuariosCreate.apellidos.$error">
+                                <div ng-message="required">Este campo es requerido.</div>
+                                <div ng-message="pattern">Solo texto.</div>
+                                <div ng-message="md-maxlength">El apellidos no puede superar 40 caracteres.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Teléfono</label>
+                            <input md-maxlength="16" ng-pattern="/\d{0,9}(\.\d{1,9})?/" required md-no-asterisk name="telefono" ng-model="vm.usuario.telefono">
+                            <div ng-messages="usuariosCreate.telefono.$error">
+                                <div ng-message="pattern">Solo numeros.</div>
+                                <div ng-message="required">Este campo es requerido.</div>
+                                <div ng-message="md-maxlength">El teléfono no puede superar 16 caracteres.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Dirección</label>
+                            <input md-maxlength="100" required md-no-asterisk name="direccion" ng-model="vm.usuario.direccion">
+                            <div ng-messages="usuariosCreate.direccion.$error">
+                                <div ng-message="required">Este campo es requerido.</div>
+                                <div ng-message="md-maxlength">La dirección no puede superar 100 caracteres.</div>
+                            </div>
+                        </md-input-container>
+                        <!-- Ciudades Autocomplete Angular Material -->
+                        <md-autocomplete md-selected-item="vm.usuario.ciudades" md-search-text="vm.searchTextCiudades" md-items="item in vm.queryCiudades(vm.searchTextCiudades)"
+                        md-item-text="item.nombreCiudad + ' - ' + item.departamentos.nombreDepartamento" md-min-length="1"
+                        md-floating-label="Ciudad" md-input-name="ciudadDomicilio" required>
+                            <md-item-template>
+                                <span md-highlight-text="vm.searchTextCiudades" md-highlight-flags="^i">
+                                {{item.nombreCiudad}}
+                                -
+                                {{item.departamentos.nombreDepartamento}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                La ciudad "{{vm.searchTextCiudades}}" no fue encontrada.
+                            </md-not-found>
+                            <div ng-messages="usuariosCreate.ciudadDomicilio.$error" ng-if="usuariosCreate.ciudadDomicilio.$touched">
+                                <div ng-message="required">Este campo es requerido.</div>
+                            </div>
+                        </md-autocomplete>
+                        <md-autocomplete md-selected-item="vm.usuario.idTipoDocumento" md-search-text="vm.searchTextTipoDocumentos" md-items="item in vm.queryTipoDocumentos(vm.searchTextTipoDocumentos)"
+                        md-item-text="item.nombreDocumento" md-min-length="1" md-floating-label="TipoDocumentos" md-input-name="tipoDocumentos"
+                        required>
+                            <md-item-template>
+                                <span md-highlight-text="vm.searchTextTipoDocumentos" md-highlight-flags="^i">
+                                {{item.nombreDocumento}}
+                             
+                        </md-item-template>
+                        <md-not-found>
+                            El "{{vm.searchTextTipoDocumentos}}" no fue aceptado.
+                        </md-not-found>
+                        <div ng-messages="usuariosCreate.tipoDocumentos.$error" ng-if="usuariosCreate.tipoDocumentos.$touched">
+                            <div ng-message="required">Este campo es requerido.</div>
+                        </div>
+                    </md-autocomplete>
+
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input type="email" md-maxlength="100" ng-pattern="/^.+@.+\..+$/" required md-no-asterisk name="email" ng-model="vm.usuario.email">
+                        <div ng-messages="usuariosCreate.email.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="pattern">Digite un email valido ejemplo@hotmail.com.</div>
+                            <div ng-message="md-maxlength">El email no puede superar 100 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Sexo</label>
+                        <md-select ng-model="vm.usuario.sexo" required>
+                            <md-option ng-repeat="sexo in [{id: 'M', nombre: 'Masculino'},{id: 'F', nombre: 'Femenino'}]" value="{{sexo.id}}">
+                                {{sexo.nombre}}
+                            </md-option>
+                        </md-select>
+                        <div ng-messages="usuariosCreate.sexo.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                        </div>
+                    </md-input-container>
+                     <md-input-container class="md-block">
+                        <label>Número Documento</label>
+                        <input md-maxlength="15" ng-pattern="/\d{0,9}(\.\d{1,9})?/" required md-no-asterisk name="numeroDocumento" ng-model="vm.usuario.numeroDocumento">
+                        <div ng-messages="usuariosCreate.numeroDocumento.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="pattern">Solo numeros.</div>
+                            <div ng-message="md-maxlength">El número documento no puede superar 15 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                    <!-- Fecha Nacimiento Datepicker Angular Material -->
+                    <md-datepicker ng-model="vm.usuario.fechaNac" name="fechaNac" required md-max-date="vm.dateMax" md-placeholder="Fecha Nacimiento"></md-datepicker>
+                    <div class="validation-messages" ng-messages="usuariosCreate.fechaNac.$error" ng-if="usuariosCreate.fechaNac.$touched">
+                      <div ng-message="valid">Los datos ingresados no son una fecha!</div>
+                        <div ng-message="required">Este campo es requerido.</div>
+                    </div>
+                    <md-input-container class="md-block">
+                        <label>Contraseña</label>
+                        <input type="password" md-maxlength="15" required md-no-asterisk name="password" ng-model="vm.usuario.password">
+                        <div ng-messages="usuarioCreate.password.$error">
+                            <div ng-message="required">Este campo es requerido.</div>
+                            <div ng-message="md-maxlength">La contraseña no puede superar 15 caracteres.</div>
+                        </div>
+                    </md-input-container>
+                     <md-input-container class="md-block">
+                        <label>Roles</label>
+                        <md-select multiple ng-model="vm.usuario.rolesList">
+                            <md-option ng-repeat="rol in vm.roles" ng-value="rol">
+                                {{rol.nombreRol}}
+                            </md-option>
+                        </md-select>
+                        </md-input-container>
+                    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+
+                        <md-button ng-click="vm.create()" class="md-raised md-primary">Guardar</md-button>
+
+                        <md-button ng-href="#/usuarios" class="md-raised md-warn">Cancelar</md-button>
+
+                    </section>
+
+                </form>
+            </md-content>
+        </div>
+
+    </div>
+</div>
+</section>
